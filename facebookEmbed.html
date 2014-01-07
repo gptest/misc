@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Facebook Test</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+
+	<script>
+
+		var query = getQueryParams(document.location.search);
+		var post = (query.post) ? query.post : 'https://www.facebook.com/NBCNews/posts/738896652797034';
+		var width = (query.width) ? query.width : '500'
+
+		function getQueryParams(qs) {
+		    qs = qs.split("+").join(" ");
+		    var params = {}, tokens,
+		        re = /[?&]?([^=]+)=([^&]*)/g;
+		    while (tokens = re.exec(qs)) {
+		        params[decodeURIComponent(tokens[1])]
+		            = decodeURIComponent(tokens[2]);
+		    }
+
+		    return params;
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+	<article id="content">
+
+		<script type="text/javascript">document.write('<div class="fb-post" data-href="'+post+'" data-width="'+width+'"></div>');</script>
+
+	</article>
+
+	<div id="fb-root"></div>
+
+	<script>(function(d, s, id) {
+
+	  var js, fjs = d.getElementsByTagName(s)[0];
+
+	  if (d.getElementById(id)) return;
+
+	  js = d.createElement(s); js.id = id;
+
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=134701639915587";
+
+	  fjs.parentNode.insertBefore(js, fjs);
+
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	
+</body>
+
+</html>
+
